@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+</head>
+<body>
+
+	<div id="displayDiv">
+		
+	</div>
+	
+	<script type="text/javascript">
+		var source = "<h1>{{name}} - {{username}}</h1><h3>{{test}}</h3>";
+		var template = Handlebars.compile(source); // 골격을 이루는 >>>함수<<<가 반환됨
+		var data = {name:"홍길동", username:"이쁘니", test:11};
+		
+		$("#displayDiv").html(template(data));
+	</script>
+
+</body>
+</html>

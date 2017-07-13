@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+</head>
+<body>
+
+
+	<div id="disp">
+		
+	</div>
+	
+
+	<script id="temp" type="text/x-handlebars-template">
+		<table border='1'>
+		<tr>
+			<th>이름</th>
+			<th>아이디</th>
+			<th>메일주소</th>
+		</tr>
+		{{#users}}
+			<tr>
+				<td>{{name}}</td>
+				<td>{{id}}</td>
+				<td><a href="#">{{email}}</a>	</td>
+			</tr>
+		{{/users}}
+	</table>
+		
+		
+	</script>
+
+	<script type="text/javascript">
+		var source = $("#temp").html();
+		var tem = Handlebars.compile(source);
+		var data = {users : [
+				         {name:"홍길동1", id:"aaa1", email:"aaa1@gmail.com"},
+				         {name:"홍길동2", id:"aaa2", email:"aaa2@gmail.com"},
+				         {name:"홍길동3", id:"aaa3", email:"aaa3@gmail.com"},
+				         {name:"홍길동4", id:"aaa4", email:"aaa4@gmail.com"},
+				         {name:"홍길동5", id:"aaa5", email:"aaa5@gmail.com"}
+				         ]
+					};
+		$("#disp").html(tem(data));
+	</script>
+</body>
+</html>
